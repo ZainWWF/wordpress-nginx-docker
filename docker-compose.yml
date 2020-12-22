@@ -19,7 +19,7 @@ services:
     image: mariadb
     container_name: ${APP_NAME}-mysql
     volumes:
-       - './data/db:/var/lib/mysql:delegated'
+       - dbdata:/var/lib/mysql:delegated
     environment:
       - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
       - MYSQL_DATABASE=${DB_NAME}
@@ -67,3 +67,12 @@ services:
     restart: 'no'
     volumes:
       - ./src:/var/www/html:rw,cached
+
+volumes:
+  # certbot-etc:
+  # wordpress:
+  dbdata:
+
+# networks:
+#   app-network:
+#     driver: bridge
