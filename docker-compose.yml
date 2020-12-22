@@ -5,7 +5,7 @@ services:
     container_name: ${APP_NAME}-nginx
     ports:
       - '80:80'
-      - '443:443'
+      # - '443:443'
     volumes:
       - ./nginx/default.conf:/tmp/default.template
       - ./src:/var/www/html:rw,cached
